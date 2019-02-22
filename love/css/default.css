@@ -1,3 +1,12 @@
+*{
+    moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -o-user-select:none;
+    -khtml-user-select:none;
+    -webkit-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
 body {
     margin: 0;
     padding: 0;
@@ -68,9 +77,9 @@ body {
     float: left;
     width: 440px;
     height: 400px;
-    color: #bd4848;
+    color: #ef9191;
     font-family: "Consolas", "Monaco", "Bitstream Vera Sans Mono", "Courier New", "sans-serif";
-    font-size: 12px
+    font-size: 18px
 }
 
 #code .string {
