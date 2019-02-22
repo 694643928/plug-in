@@ -7,9 +7,11 @@
 		<link rel="shortcut icon" type="image/x-icon" href="images/love.png" media="screen" />
 
 		<link href="css/default.css" type="text/css" rel="stylesheet">
+		<link href="css/snow.css" type="text/css" rel="stylesheet">
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/garden.js"></script>
 		<script type="text/javascript" src="js/functions.js"></script>
+		<script type="text/javascript" src="js/snow.js"></script>
 	</head>
 
 	<body>
@@ -49,6 +51,12 @@
 		</div>
 
 		<script type="text/javascript">
+			  var sf = new Snowflakes({
+		          color: "#ffffff",
+		          count: 75,
+		          minOpacity: 0.2,
+		          maxOpacity: 0.6
+		        });
 			var offsetX = $("#loveHeart").width() / 2;
 			var offsetY = $("#loveHeart").height() / 2 - 55;
 			var together = new Date();
@@ -80,6 +88,38 @@
 				$("#code").typewriter();
 			}
 		</script>
+		<script type="text/javascript">
+/* 鼠标特效 */
+var a_idx = 0;
+jQuery(document).ready(function($) {
+    $("body").click(function(e) {
+        var a = new Array("❤爱你❤","❤爱你❤","❤爱你❤","❤爱你❤","❤爱你❤","❤爱你❤","❤爱你❤","❤爱你❤","❤爱你❤","❤爱你❤","❤爱你❤");
+        var $i = $("<span></span>").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;
+        var x = e.pageX,
+        y = e.pageY;
+        $i.css({
+            "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+        });
+        $("body").append($i);
+        $i.animate({
+            "top": y - 180,
+            "opacity": 0
+        },
+        1500,
+        function() {
+            $i.remove();
+        });
+    });
+});
+
+</script>
+</script>
 	</body>
 
 </html>
