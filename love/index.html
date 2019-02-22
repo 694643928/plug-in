@@ -15,7 +15,7 @@
 
 	<body>
 		<div id="mainDiv">
-			<audio id="audio" src="audio/i could be the one.mp3" controls autoplay loop="loop" style="display: none;"></audio>
+			<audio id="audio" src="audio/i could be the one.mp3" controls autoplay loop="loop"></audio>
 			<div id="content">
 				<div id="code">
 					<span class="comments">/**</span><br />
@@ -92,7 +92,26 @@
 			/* 鼠标特效 */
 			var a_idx = 0;
 			jQuery(document).ready(function($) {
-				$("body").click(function(e) {
+					//--创建页面监听，等待微信端页面加载完毕 触发音频播放
+				document.addEventListener('DOMContentLoaded', function() {
+					function audioAutoPlay() {
+						var audio = document.getElementById('audio');
+						audio.play();
+						document.addEventListener("WeixinJSBridgeReady", function() {
+							audio.play();
+						}, false);
+					}
+					audioAutoPlay();
+				});
+				//--创建触摸监听，当浏览器打开页面时，触摸屏幕触发事件，进行音频播放
+				document.addEventListener('touchstart', function() {
+					function audioAutoPlay() {
+						var audio = document.getElementById('audio');
+						audio.play();
+					}
+					audioAutoPlay();
+				});
+				$("body").touchstart(function(e) {
 					var a = new Array("❤爱你❤", "❤爱你❤", "❤爱你❤", "❤爱你❤", "❤爱你❤", "❤爱你❤", "❤爱你❤", "❤爱你❤", "❤爱你❤", "❤爱你❤", "❤爱你❤");
 					var $i = $("<span></span>").text(a[a_idx]);
 					a_idx = (a_idx + 1) % a.length;
@@ -117,25 +136,6 @@
 							$i.remove();
 						});
 				});
-			});
-			//--创建页面监听，等待微信端页面加载完毕 触发音频播放
-			document.addEventListener('DOMContentLoaded', function() {
-				function audioAutoPlay() {
-					var audio = document.getElementById('audio');
-					audio.play();
-					document.addEventListener("WeixinJSBridgeReady", function() {
-						audio.play();
-					}, false);
-				}
-				audioAutoPlay();
-			});
-			//--创建触摸监听，当浏览器打开页面时，触摸屏幕触发事件，进行音频播放
-			document.addEventListener('touchstart', function() {
-				function audioAutoPlay() {
-					var audio = document.getElementById('audio');
-					audio.play();
-				}
-				audioAutoPlay();
 			});
 		</script>
 		</script>
