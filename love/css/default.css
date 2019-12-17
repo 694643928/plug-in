@@ -10,7 +10,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: #000;
+    background: #1b1717;
     font-size: 15px;
     overflow: auto
 }
@@ -79,7 +79,7 @@ body {
     height: 400px;
     color: #ef9191;
     font-family: "Consolas", "Monaco", "Bitstream Vera Sans Mono", "Courier New", "sans-serif";
-    font-size: 18px;
+    font-size: 20px;
 }
 
 #code .string {
