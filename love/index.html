@@ -3,7 +3,8 @@
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>Please</title>
+		<meta name="viewport" content="maximum-scale=1.0, user-scalable=0;" />
+		<title>我们的专属空间</title>
 		<link rel="shortcut icon" type="image/x-icon" href="images/love.png" media="screen" />
 
 		<link href="css/default.css" type="text/css" rel="stylesheet">
@@ -92,6 +93,17 @@
 			/* 鼠标特效 */
 			var a_idx = 0;
 			jQuery(document).ready(function($) {
+				setRem();
+				window.addEventListener("orientationchange", setRem);
+				window.addEventListener("resize", setRem);
+				function setRem() {
+					/*
+					* 以750*1334的设计稿为例：1rem=40px
+					*/
+					var html = document.querySelector("html");
+					var width = html.getBoundingClientRect().width;
+					html.style.fontSize = width / 18.75 + "px";
+				}
 					//--创建页面监听，等待微信端页面加载完毕 触发音频播放
 				document.addEventListener('DOMContentLoaded', function() {
 					function audioAutoPlay() {
